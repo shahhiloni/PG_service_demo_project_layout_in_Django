@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Our PG Services</h2>
+
+<select id="cityFilter" onchange="filterPG()">
+    <option value="all">All Cities</option>
+    <option value="Ahmedabad">Ahmedabad</option>
+    <option value="Surat">Surat</option>
+</select>
+
+<div id="pgContainer" class="pg-container">
+    {% for pg in pg_data %}
+    <div class="pg-card" data-city="{{ pg.city }}">
+        <img src="{% static 'images/' %}{{ pg.image }}"> 
+        <h3>{{ pg.name }}</h3>
+        <p>{{ pg.description }}</p>
+        <p><b>City:</b> {{ pg.city }}</p>
+        <p><b>Rent:</b> ₹{{ pg.rent }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+function filterPG() {
+    let city = document.getElementById("cityFilter").value;
+    let cards = document.getElementsByClassName("pg-card");
+
+    for (let card of cards) {
+        if (city === "all" || card.dataset.city === city) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    }
+}
+</script>
+
+{% endblock %}

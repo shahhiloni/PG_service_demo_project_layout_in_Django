@@ -1,0 +1,73 @@
+{% extends 'Base.html' %}
+
+{% block content %}
+
+<h2>Contact Us</h2>
+
+<form id="contactForm" onsubmit="return validateForm()">
+
+    <label>Name:</label><br>
+    <input type="text" id="name"><br>
+    <span class="error" id="nameError"></span><br>
+
+    <label>Email:</label><br>
+    <input type="text" id="email"><br>
+    <span class="error" id="emailError"></span><br>
+
+    <label>Phone:</label><br>
+    <input type="text" id="phone"><br>
+    <span class="error" id="phoneError"></span><br>
+
+    <label>Message:</label><br>
+    <textarea id="message"></textarea><br>
+    <span class="error" id="messageError"></span><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+function validateForm() {
+
+    let isValid = true;
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let message = document.getElementById("message").value.trim();
+
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("phoneError").innerHTML = "";
+    document.getElementById("messageError").innerHTML = "";
+
+    if (name === "") {
+        document.getElementById("nameError").innerHTML = "Name is required";
+        isValid = false;
+    }
+
+    if (email === "") {
+        document.getElementById("emailError").innerHTML = "Email is required";
+        isValid = false;
+    } else if (!email.match(/^\S+@\S+\.\S+$/)) {
+        document.getElementById("emailError").innerHTML = "Enter valid email";
+        isValid = false;
+    }
+
+    if (phone === "") {
+        document.getElementById("phoneError").innerHTML = "Phone is required";
+        isValid = false;
+    } else if (!phone.match(/^[0-9]{10}$/)) {
+        document.getElementById("phoneError").innerHTML = "Enter 10 digit number";
+        isValid = false;
+    }
+
+    if (message === "") {
+        document.getElementById("messageError").innerHTML = "Message is required";
+        isValid = false;
+    }
+
+    return isValid;
+}
+</script>
+
+{% endblock %}
