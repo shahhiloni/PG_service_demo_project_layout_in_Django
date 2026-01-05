@@ -1,0 +1,131 @@
+1. whta is sqlite?
+- we don't need server in sqlite 
+- store data in a single file 
+- that's it easiere learn and fast
+- used for mobile application, website, small or medium size project
+
+
+2. what is sqlite 
+- it don;t used in large - scale Data
+
+3. sqlite work on relational database terms and provide tabular format 
+(based SQL)
+
+4. what is Primary Key 
+- provide unique ID for each row
+
+{
+    "id": 1,
+    "name": "hiloni", 
+    "email": "shahhiloni@gmail.com", 
+    "contact": 333333333, 
+    "Description": "hello world"
+}
+
+Primary Key is alway unique and never repeat (ID)
+
+Note :  sqlite is a case - sentive
+CREATE - 
+create - 
+
+Both meaning are different in Query
+
+## Database method or API method 
+
+1. GET :  View 
+2. POST : Insert, Create 
+3. PUT : UPDATE, (modify the existing data )
+4. DELETE : DELETE (delete the existing data from th database)
+
+
+# step : 1 : create table 
+CREATE TABLE students (
+id INTEGER PRIMARY KEY AUTOINCREMENT, 
+name TEXT / VARCHAR  (String)
+age INTERGER (numbers)
+email VARCHAR / TEXT  (string)
+)
+
+
+# step : 2 : Insert the data into table  (add the data into table)
+
+INSERT INTO students (name, age, email) 
+VALUES ("meet", 20, "meet@gmail.com")
+
+# step: 3 : view the data which is already exist in the table 
+
+SELECT name, age, email FROM students
+
+Examples : 
+
+student.json 
+table name : students 
+
+{
+    id: 1, 
+    "name": "meet", 
+    "email": "meet@gmail.com",
+    "age" 20, 
+    "subject": "FS",
+
+}, 
+{
+    id: 2, 
+    "name": "bhavin", 
+    "email": "bhavin@gmail.com",
+    "age" 22, 
+    "subject": "FS",
+
+}
+
+table name : contact 
+contact.json
+
+{
+  id: 1, 
+    "name": "meet", 
+    "email": "meet@gmail.com",
+    "contact" : 4444444444   
+}
+
+## select all columns 
+
+SELECT * FROM students
+
+## Select data or view data condition wise 
+
+SELECT  * FROM students WHERE age >20;
+
+
+## Update data or modify the data in database 
+UPDATE students 
+SET age = 23
+WHERE id = 1;
+
+## DELETE data from the database 
+
+DELETE FROM students WHERE id = 2;
+
+## DELETE ALL 
+
+DELETE FROM students (table empty)
+
+
+## Remove or delete the table from database 
+
+DROP TABLE students;
+
+
+### basic and useful command for terminal or windows powershell 
+1. show all tables of database 
+
+command : .tables
+
+2. view the table structure 
+
+command  : PRAGMA table_info(students)
+
+3. Exist sqlite 
+
+command : ..exit 
+

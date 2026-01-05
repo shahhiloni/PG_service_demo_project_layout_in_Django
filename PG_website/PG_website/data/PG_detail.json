@@ -4,7 +4,7 @@
       "name": "Comfort PG",
       "city": "Ahmedabad",
       "rent": 6000,
-      "image": "/static/images/pg1.jpg",
+      "image": "/static/download-2.jpg",
       "description": "Fully furnished PG for girls with food facility."
     },
     {
@@ -12,7 +12,7 @@
       "name": "Royal Stay PG",
       "city": "Surat",
       "rent": 7500,
-      "image": "/static/images/pg2.jpg",
+      "image": "/static/download-2.jpg",
       "description": "Safe and secure PG for working professionals."
     },
     {
@@ -20,7 +20,15 @@
       "name": "Home Away PG",
       "city": "Ahmedabad",
       "rent": 5000,
-      "image": "/static/images/pg3.jpg",
+      "image": "/static/download-2.jpg",
+      "description": "Affordable PG with Wi-Fi and laundry."
+    }, 
+    {
+      "id": 4,
+      "name": "Home Away PG",
+      "city": "Ahmedabad",
+      "rent": 5000,
+      "image": "/static/download-2.jpg",
       "description": "Affordable PG with Wi-Fi and laundry."
     }
   ]

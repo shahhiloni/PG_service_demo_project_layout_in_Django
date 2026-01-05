@@ -8,9 +8,14 @@
     <option value="all">All Cities</option>
     <option value="Ahmedabad">Ahmedabad</option>
     <option value="Surat">Surat</option>
+    
 </select>
 
-<div id="pgContainer" class="pg-container">
+<!-- <button onclick=""> </button> -->
+<div class="container"> 
+    <div class="row"> 
+        <div class="col-md-4">
+<!-- <div id="pgContainer" class="pg-container">
     {% for pg in pg_data %}
     <div class="pg-card" data-city="{{ pg.city }}">
         <img src="{% static 'images/' %}{{ pg.image }}"> 
@@ -18,8 +23,21 @@
         <p>{{ pg.description }}</p>
         <p><b>City:</b> {{ pg.city }}</p>
         <p><b>Rent:</b> ₹{{ pg.rent }}</p>
-    </div>
+    </div> -->
+
+    <div class="card" style="width: 18rem;">
+        <img src="{% static 'images/' %}{{ pg.image }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" data-city="{{ pg.city }}">Card title</h5>
+          <p class="card-text">{{ pg.description }}</p>
+          <p class="card-text"><b>City:</b> {{ pg.city }}</p>
+          <p class="card-text"><b>Rent:</b> ₹{{ pg.rent }}</p>
+          <a href="/" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
     {% endfor %}
+</div>
+</div>    </div>
 </div>
 
 <script>
@@ -35,6 +53,8 @@ function filterPG() {
         }
     }
 }
+
+
 </script>
 
 {% endblock %}

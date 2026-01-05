@@ -1,5 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+from .models import Contact_api 
 
 def Home(request):
     return render(request, 'Home.html')
@@ -10,8 +13,27 @@ def About(request):
 def pg_list(request):
     return render(request, 'pg_list.html')
 
+def Contacts_api(request):
+    if request.method == "GET":
+        return render(request, "Contact.html")
+
+    if request.method == "POST":
+        data = json.loads(request.body)
+
+        Contact_api.objects.create(
+            name=data.get("name"),
+            email=data.get("email"),
+            phone=data.get("phone"),
+            message=data.get("message")
+        )
+
+        return JsonResponse({
+            "status": "success",
+            "message": "Contact saved successfully"
+        })
+
 def Contact(request):
-    return render(request, 'Contact.html')
+    return render(request, "Contact.html")
 
 def Service(request):
     pg_data = [

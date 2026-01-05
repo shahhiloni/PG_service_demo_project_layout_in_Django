@@ -1,0 +1,42 @@
+JSON - Javascript object Notation
+- it is a lightweight data format used to store and maintain or manage the data and exchange the data 
+- client and server in same format
+
+-- easy to read and write and give permission to  the user 
+-- language - independtly work (Ex : java, js, Django, python, etc..)
+
+EX : {
+key : Value;
+}
+
+Ex: 
+{
+"name": "bhavin",
+"subject" : "internship in Django", 
+"ROllNO" : 45, 
+}
+
+
+- Json accpet all type of Data - type 
+(String, numbers (int, float, double), booleans, array, etc...)
+
+String : "meet", 
+Number : 34, 
+Boolean : "active" : true (1)
+"active" : false (0)
+
+Array : "skills" : ["HTML", "CSS", 67]
+Object : "address" : {
+    "city": "Ahmedabad", 
+    "state": "Gujrat",
+}
+
+NUll : "result" : null
+
+
+1. Convert JSON format into JS 
+- const data = JSON.parse(jsonString);
+
+2. Convert JS into JSON format
+- const dataSet = JSON.Stringify(object)
+

@@ -4,25 +4,27 @@
 
 <h2>Contact Us</h2>
 
-<form id="contactForm" onsubmit="return validateForm()">
+<form method="POST" action="">
+    {% csrf_token %}
 
     <label>Name:</label><br>
-    <input type="text" id="name"><br>
+    <input type="text" name="name" id="name" placeholder="Enter Your Name" required><br>
     <span class="error" id="nameError"></span><br>
 
     <label>Email:</label><br>
-    <input type="text" id="email"><br>
+    <input type="email" name="email" id="email" placeholder="Enter Your Email Address" required><br>
     <span class="error" id="emailError"></span><br>
 
     <label>Phone:</label><br>
-    <input type="text" id="phone"><br>
+    <input type="tel" name="phone" id="phone" placeholder="Enter Your Phone Number" minlength="10" maxlength="10"><br>
     <span class="error" id="phoneError"></span><br>
 
     <label>Message:</label><br>
-    <textarea id="message"></textarea><br>
+    <textarea name="message" id="message" placeholder="Enter Your Message here..." required></textarea><br>
     <span class="error" id="messageError"></span><br>
 
     <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
 </form>
 
 <script>
