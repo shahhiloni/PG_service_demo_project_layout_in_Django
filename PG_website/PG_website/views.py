@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from .models import Contact_api 
@@ -13,27 +13,39 @@ def About(request):
 def pg_list(request):
     return render(request, 'pg_list.html')
 
-def Contacts_api(request):
-    if request.method == "GET":
-        return render(request, "Contact.html")
+# def Contact(request):
+#     if request.method == "GET":
+#         return render(request, "Contact.html")
 
-    if request.method == "POST":
-        data = json.loads(request.body)
+#     if request.method == "POST":
+#         data = json.loads(request.body)
 
-        Contact_api.objects.create(
-            name=data.get("name"),
-            email=data.get("email"),
-            phone=data.get("phone"),
-            message=data.get("message")
-        )
+#         Contact_api.objects.create(
+#             name=data.get("name"),
+#             email=data.get("email"),
+#             phone=data.get("phone"),
+#             message=data.get("message")
+#         )
 
-        return JsonResponse({
-            "status": "success",
-            "message": "Contact saved successfully"
-        })
+#         return JsonResponse({
+#             "status": "success",
+#             "message": "Contact saved successfully"
+#         })
 
 def Contact(request):
+    if request.method == "POST":
+        Contact_api.objects.create(
+            name=request.POST.get("name"),
+            email=request.POST.get("email"),
+            phone=request.POST.get("phone"),
+            message=request.POST.get("message"),
+        )
+        return HttpResponse("Contact form submitted successfully")
+
     return render(request, "Contact.html")
+
+# def Contact(request):
+#     return render(request, "Contact.html")
 
 def Service(request):
     pg_data = [
