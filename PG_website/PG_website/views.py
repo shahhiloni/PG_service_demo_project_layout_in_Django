@@ -13,25 +13,6 @@ def About(request):
 def pg_list(request):
     return render(request, 'pg_list.html')
 
-# def Contact(request):
-#     if request.method == "GET":
-#         return render(request, "Contact.html")
-
-#     if request.method == "POST":
-#         data = json.loads(request.body)
-
-#         Contact_api.objects.create(
-#             name=data.get("name"),
-#             email=data.get("email"),
-#             phone=data.get("phone"),
-#             message=data.get("message")
-#         )
-
-#         return JsonResponse({
-#             "status": "success",
-#             "message": "Contact saved successfully"
-#         })
-
 def Contact(request):
     if request.method == "POST":
         Contact_api.objects.create(
@@ -46,6 +27,10 @@ def Contact(request):
 
 # def Contact(request):
 #     return render(request, "Contact.html")
+
+def pg_detail(request, id):
+    pg = get_object_or_404(PG, id=id)
+    return render(request, 'pg_detail.html', {'pg': pg})
 
 def Service(request):
     pg_data = [

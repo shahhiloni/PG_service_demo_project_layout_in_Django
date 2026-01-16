@@ -11,3 +11,10 @@ class Contact_api(models.Model):
         return self.name
     
     
+class PG(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    city = models.CharField(max_length=50)
+    rent = models.IntegerField()
+    image = models.ImageField(upload_to='pg_images/')
+    facilities = models.TextField()

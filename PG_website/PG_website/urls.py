@@ -26,6 +26,7 @@ urlpatterns = [
     path('feedback/', views.Feedback, name='feedback'),
     path('faq/', views.FAQ, name='faq'),
     path('service/', views.Service, name='service'),
+     path('pg/<int:id>/', views.pg_detail, name='pg_detail'),
 
 ]
 
